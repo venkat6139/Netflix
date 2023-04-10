@@ -30,7 +30,7 @@ if uploaded_file is not None:
     st.sidebar.title('Options')
     # Display options in the sidebar
     option = st.sidebar.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization'])
-    # View the data
+    # View the data set
     if option == 'NetFlix Data Analysis Basic Information':
         st.title("NetFlix Data Analysis Basic Information")
         if st.checkbox('Dimensions and Shape of the Data Set'):
