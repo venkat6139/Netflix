@@ -48,12 +48,12 @@ if uploaded_file is not None:
         plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
         # Display the visualization
         if plot_type == 'Histogram':
-            data['Year'] = data['Date'].dt.year
+            data['Year'] = data['Release_Date'].dt.year
             sns.histplot(data['Year'])
             plt.title('Distribution of Release Years')
             st.pyplot()
         elif plot_type == 'Boxplot':
-            data['Year'] = data['Date'].dt.year
+            data['Year'] = data['Release_Date'].dt.year
             sns.boxplot(x=data['type'], y=data['Year'])
             plt.title('Distribution of Release Years by Type')
             st.pyplot()
