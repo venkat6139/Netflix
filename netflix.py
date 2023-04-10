@@ -20,17 +20,20 @@ for name in names:
     st.sidebar.write(name)
 st.sidebar.title("Under The Guidance of :")
 st.sidebar.write("Dr.Bomma.Ramakrishna")
+
 # File upload
+
 uploaded_file = st.file_uploader("Choose a NetFlix Dataset csv")
+
 if uploaded_file is not None:
     data=pd.read_csv(uploaded_file)
     st.dataframe(data)
     # Set up the Streamlit app
     st.title('Exploratory Data Analysis of the Netflix Dataset')
-    st.title('Options')
+    st.sidebar.title('Options')
     # Display options in the sidebar
     option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization'])
-    # View the data set
+    # View the data
     if option == 'NetFlix Data Analysis Basic Information':
         st.title("NetFlix Data Analysis Basic Information")
         if st.checkbox('Dimensions and Shape of the Data Set'):
@@ -38,29 +41,40 @@ if uploaded_file is not None:
         if st.checkbox('Data Types Pressnt in the Data Set'):
             st.write("DATA TYPES :", data.dtypes)
         if st.checkbox('Columns Pressnt in the Data Set'):
-            st.write("COLUMNS :", data.columns)  
+            st.write("COLUMNS :", data.columns)
+        if st.checkbox('No of rows and columns in the data set'):
+            st.write("Number of rows : ",len(data))
+            st.write("Number of columns : ",len(data.columns))
+        if st.checkbox('Show unique values in Category column'):
+            st.write(data['Category'].unique())
+        if st.checkbox('Show unique values in Title column'):
+            st.write(data['Title'].unique())
+        if st.checkbox('Show unique values in Director column'):
+            st.write(data['Director'].unique())
+        if st.checkbox('Show unique values in Cast column'):
+            st.write(data['Cast'].unique())
+        if st.checkbox('Show unique values in Country column'):
+            st.write(data['Country'].unique())
+        if st.checkbox('Show unique values in Release_Date column'):
+            st.write(data['Release_Date'].unique())
+        if st.checkbox('Show unique values in Duration column'):
+            st.write(data['Duration'].unique())
     # View the summary statistics
     elif option == 'View Summary':
         st.write(data.describe())
     # View the visualization
     elif option == 'View Visualization':
         # Choose the type of visualization
-        plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
+        plot_type = st.sidebar.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
         # Display the visualization
         if plot_type == 'Histogram':
-            fig, ax = plt.subplots()
-            ax.hist(data['Rating'], bins=10, color='purple')
-            ax.set_xlabel('Rating')
-            ax.set_ylabel('Frequency')
-            ax.set_title('Distribution of Ratings in Netflix Dataset')
-            st.pyplot(fig)
+            sns.histplot(data['release_year'])
+            plt.title('Distribution of Release Years')
+            st.pyplot()
         elif plot_type == 'Boxplot':
-            st.title("Boxplot Settings")
-            variable = st.selectbox(label="Select a variable",options=["release_year", "duration"])
-            # Create boxplot
-            fig = px.box(data, x=variable)
-            # Display boxplot
-            st.plotly_chart(fig)
+            sns.boxplot(x=data['type'], y=data['release_year'])
+            plt.title('Distribution of Release Years by Type')
+            st.pyplot()
         elif plot_type == 'Heatmap':
             corr = data.corr()
             sns.heatmap(corr, annot=True, cmap='coolwarm')
