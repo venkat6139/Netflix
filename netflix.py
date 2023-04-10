@@ -29,7 +29,7 @@ if uploaded_file is not None:
     st.title('Exploratory Data Analysis of the Netflix Dataset')
     st.title('Options')
     # Display options in the sidebar
-    option = st.sidebar.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization'])
+    option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization'])
     # View the data set
     if option == 'NetFlix Data Analysis Basic Information':
         st.title("NetFlix Data Analysis Basic Information")
