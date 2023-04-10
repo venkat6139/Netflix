@@ -58,7 +58,7 @@ if uploaded_file is not None:
             st.title("Boxplot Settings")
             variable = st.selectbox(label="Select a variable",options=["release_year", "duration"])
             # Create boxplot
-            fig = px.box(netflix_df, x=variable)
+            fig = px.box(data, x=variable)
             # Display boxplot
             st.plotly_chart(fig)
         elif plot_type == 'Heatmap':
