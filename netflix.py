@@ -30,7 +30,7 @@ if uploaded_file is not None:
     st.dataframe(data)
     # Set up the Streamlit app
     st.title('Exploratory Data Analysis of the Netflix Dataset')
-    st.title('Options')
+    st.title('Choose Your Options')
     # Display options in the sidebar
     option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization','Queries Based on Netflix Data Set'])
     # View the data
@@ -145,7 +145,7 @@ if uploaded_file is not None:
             st.write(data.sort_values(by = 'Year', ascending = False))
         #Question 13
         if st.checkbox('Find all the instances where : Category is "Movie" and Type is "Dramas" or Category is "TV Show" and Type is "Kids TV"'):
-            Category_1 = st.text_input("category_1")
+            Category_1 = st.text_input("categroy_1")
             Category_2 = st.text_input("category_2")
             type_1 = st.text_input("type_1")
             type_2 = st.text_input("type_2")
