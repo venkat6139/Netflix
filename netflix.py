@@ -27,9 +27,9 @@ if uploaded_file is not None:
     st.dataframe(data)
     # Set up the Streamlit app
     st.title('Exploratory Data Analysis of the Netflix Dataset')
-    st.sidebar.title('Options')
+    st.title('Options')
     # Display options in the sidebar
-    option = st.sidebar.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization'])
+    option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization'])
     # View the data set
     if option == 'NetFlix Data Analysis Basic Information':
         st.title("NetFlix Data Analysis Basic Information")
@@ -46,7 +46,7 @@ if uploaded_file is not None:
     # View the visualization
     elif option == 'View Visualization':
         # Choose the type of visualization
-        plot_type = st.sidebar.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
+        plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
         # Display the visualization
         if plot_type == 'Histogram':
             sns.histplot(data['release_year'])
