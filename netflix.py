@@ -55,11 +55,12 @@ if uploaded_file is not None:
             ax.set_title('Distribution of Ratings in Netflix Dataset')
             st.pyplot(fig)
         elif plot_type == 'Boxplot':
-            data['Date_N'] = pd.to_datetime(data['Release_Date'])
-            data['Year'] = data['Date_N'].dt.year
-            sns.boxplot(x=data['type'], y=data['Year'])
-            plt.title('Distribution of Release Years by Type')
-            st.pyplot()
+            st.title("Boxplot Settings")
+            variable = st.selectbox(label="Select a variable",options=["release_year", "duration"])
+            # Create boxplot
+            fig = px.box(netflix_df, x=variable)
+            # Display boxplot
+            st.plotly_chart(fig)
         elif plot_type == 'Heatmap':
             corr = data.corr()
             sns.heatmap(corr, annot=True, cmap='coolwarm')
