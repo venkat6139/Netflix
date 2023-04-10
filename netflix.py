@@ -30,7 +30,7 @@ if uploaded_file is not None:
     st.dataframe(data)
     # Set up the Streamlit app
     st.title('Exploratory Data Analysis of the Netflix Dataset')
-    st.sidebar.title('Options')
+    st.title('Options')
     # Display options in the sidebar
     option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization'])
     # View the data
