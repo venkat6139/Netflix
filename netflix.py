@@ -49,7 +49,7 @@ if uploaded_file is not None:
         # Display the visualization
         if plot_type == 'Histogram':
             fig, ax = plt.subplots()
-            ax.hist(netflix_data['Rating'], bins=10, color='purple')
+            ax.hist(data['Rating'], bins=10, color='purple')
             ax.set_xlabel('Rating')
             ax.set_ylabel('Frequency')
             ax.set_title('Distribution of Ratings in Netflix Dataset')
