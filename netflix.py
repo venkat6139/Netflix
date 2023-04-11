@@ -159,9 +159,9 @@ if uploaded_file is not None:
             st.write(data.sort_values(by = 'Year', ascending = False))
         #Question 13
         if st.checkbox('Find all the instances where : Category is "Movie" and Type is "Dramas" or Category is "TV Show" and Type is "Kids TV"'):
-            Category_1 = st.selectbox(data['Category'].unique())
-            Category_2 = st.selectbox(data['Category'].unique())
-            type_1 = st.selectbox(data['Type'].unique())
-            type_2 = st.selectbox(data['Type'].unique())
+            Category_1 = st.selectbox("choose category",data['Category'].unique())
+            Category_2 = st.selectbox("choose category",data['Category'].unique())
+            type_1 = st.selectbox("choose type",data['Type'].unique())
+            type_2 = st.selectbox("choose type",data['Type'].unique())
             st.write(data[(data['Category'] == Category_1) & (data['Type'] == type_1) | (data['Category'] == Category_2) & (data['Type'] == type_2)])
 
