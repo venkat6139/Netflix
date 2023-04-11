@@ -96,10 +96,10 @@ if uploaded_file is not None:
             # Show the plot in Streamlit
             st.pyplot(fig)
 
-        elif plot_type == 'Heatmap':
+        elif plot_type == '':
             fig,ax = plt.subplots()
             corr = data.corr()
-            sns.heatmap(corr, annot=True)
+            ax.imshow(corr,cmap='coolwarm')
             #plt.matshow(corr)
             plt.title('Correlation Heatmap')
             st.pyplot(fig)
