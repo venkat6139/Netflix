@@ -70,9 +70,17 @@ if uploaded_file is not None:
         plot_type = st.sidebar.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
         # Display the visualization
         if plot_type == 'Histogram':
-            sns.histplot(data['release_year'])
-            plt.title('Distribution of Release Years')
-            st.pyplot()
+            # Convert the release date column to datetime format
+            data['date_added'] = pd.to_datetime(data['date_added'])
+            # Create a histogram of the release dates
+            fig, ax = plt.subplots()
+            ax.hist(data['date_added'].dt.year, bins=30)
+            # Set the chart title and labels
+            ax.set_title("Distribution of Netflix Content Release Dates")
+            ax.set_xlabel("Year")
+            ax.set_ylabel("Count")
+            # Display the chart in the Streamlit app
+            st.pyplot(fig)
         elif plot_type == 'Boxplot':
             sns.boxplot(x=data['type'], y=data['release_year'])
             plt.title('Distribution of Release Years by Type')
