@@ -70,13 +70,12 @@ if uploaded_file is not None:
         plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
         # Display the visualization
         if plot_type == 'Histogram':
-            # Convert the release date column to datetime format
-            data['date_added'] = pd.to_datetime(data['Release_Date'])
-            data['date_added'] = data['date_added'].dt.year
-            st.write(data['date_added'])
+            data['Date'] = pd.to_datetime(data['Release_Date'])
+            # extract the year from the datetime object
+            data['Year'] = data['Date'].dt.year
             # Create a histogram of the release dates
             fig, ax = plt.subplots()
-            ax.hist(data['date_added'], bins=30)
+            ax.hist(data['Year'], bins=30)
             # Set the chart title and labels
             ax.set_title("Distribution of Netflix Content Release Dates")
             ax.set_xlabel("Year")
