@@ -73,6 +73,7 @@ if uploaded_file is not None:
             # Convert the release date column to datetime format
             data['date_added'] = pd.to_datetime(data['Release_Date'])
             data['date_added'].astype(int)
+            st.write(data['date_added'])
             # Create a histogram of the release dates
             fig, ax = plt.subplots()
             ax.hist(data['date_added'].year, bins=30)
