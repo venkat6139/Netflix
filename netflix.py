@@ -83,9 +83,22 @@ if uploaded_file is not None:
             # Display the chart in the Streamlit app
             st.pyplot(fig)
         elif plot_type == 'Boxplot':
-            sns.boxplot(x=data['type'], y=data['release_year'])
+           """ sns.boxplot(x=data['type'], y=data['Release_Date'])
             plt.title('Distribution of Release Years by Type')
             st.pyplot()
+            
+            data['year'] = pd.to_datetime(data['date_added'])"""
+
+            # Create a boxplot of the release date
+            fig, ax = plt.subplots()
+            sns.boxplot(x=data['year'].dt.year, ax=ax)
+            ax.set_title('Boxplot of Netflix Release Date by Year')
+            ax.set_xlabel('Year')
+            ax.set_ylabel('Release_Date')
+
+            # Show the plot in Streamlit
+            st.pyplot(fig)
+
         elif plot_type == 'Heatmap':
             corr = data.corr()
             sns.heatmap(corr, annot=True, cmap='coolwarm')
