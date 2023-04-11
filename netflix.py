@@ -71,7 +71,7 @@ if uploaded_file is not None:
         # Display the visualization
         if plot_type == 'Histogram':
             # Convert the release date column to datetime format
-            data['date_added'] = pd.to_datetime(data['date_added'])
+            data['date_added'] = pd.to_datetime(data['Release_Date'])
             data['date_added'].astype(int)
             # Create a histogram of the release dates
             fig, ax = plt.subplots()
