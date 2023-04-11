@@ -83,15 +83,12 @@ if uploaded_file is not None:
             # Display the chart in the Streamlit app
             st.pyplot(fig)
         elif plot_type == 'Boxplot':
-            """ sns.boxplot(x=data['type'], y=data['Release_Date'])
-            plt.title('Distribution of Release Years by Type')
-            st.pyplot()
-            
-            data['year'] = pd.to_datetime(data['date_added'])"""
-
+            data['Date'] = pd.to_datetime(data['Release_Date'])
+            # extract the year from the datetime object
+            data['Year'] = data['Date'].dt.year
             # Create a boxplot of the release date
             fig, ax = plt.subplots()
-            sns.boxplot(x=data['year'].dt.year, ax=ax)
+            sns.boxplot(x=data['Year'], ax=ax)
             ax.set_title('Boxplot of Netflix Release Date by Year')
             ax.set_xlabel('Year')
             ax.set_ylabel('Release_Date')
