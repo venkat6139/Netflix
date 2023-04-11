@@ -98,8 +98,9 @@ if uploaded_file is not None:
 
         elif plot_type == 'Heatmap':
             fig,ax = plt.subplots()
-            corr_m = data.corr()
-            sns.heatmap(corr_m, annot=True, cmap='coolwarm')
+            corr = data.corr()
+            #sns.heatmap(corr, annot=True, cmap='coolwarm')
+            plt.matshow(corr)
             plt.title('Correlation Heatmap')
             st.pyplot(fig)
     if option == 'Queries Based on Netflix Data Set':
