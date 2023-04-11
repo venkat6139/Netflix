@@ -83,7 +83,7 @@ if uploaded_file is not None:
             # Display the chart in the Streamlit app
             st.pyplot(fig)
         elif plot_type == 'Boxplot':
-           """ sns.boxplot(x=data['type'], y=data['Release_Date'])
+            """ sns.boxplot(x=data['type'], y=data['Release_Date'])
             plt.title('Distribution of Release Years by Type')
             st.pyplot()
             
