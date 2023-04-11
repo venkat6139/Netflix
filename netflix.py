@@ -67,7 +67,7 @@ if uploaded_file is not None:
     # View the visualization
     elif option == 'View Visualization':
         # Choose the type of visualization
-        plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
+        plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Scatter Plot'])
         # Display the visualization
         if plot_type == 'Histogram':
             data['Date'] = pd.to_datetime(data['Release_Date'])
@@ -96,7 +96,7 @@ if uploaded_file is not None:
             # Show the plot in Streamlit
             st.pyplot(fig)
 
-        elif plot_type == 'Heatmap':
+        elif plot_type == 'Scatter Plot':
             x_var = st.selectbox("x-axis variable",data.columns)
             y_var = st.selectbox("y-axis variable",data.columns)
             fig,ax=plt.subplots()
