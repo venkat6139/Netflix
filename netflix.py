@@ -72,11 +72,11 @@ if uploaded_file is not None:
         if plot_type == 'Histogram':
             # Convert the release date column to datetime format
             data['date_added'] = pd.to_datetime(data['Release_Date'])
-            data['date_added'].astype(int)
+            #data['date_added'].astype(int)
             st.write(data['date_added'])
             # Create a histogram of the release dates
             fig, ax = plt.subplots()
-            ax.hist(data['date_added'].year, bins=30)
+            ax.hist(data['date_added'].dt.year, bins=30)
             # Set the chart title and labels
             ax.set_title("Distribution of Netflix Content Release Dates")
             ax.set_xlabel("Year")
