@@ -96,7 +96,7 @@ if uploaded_file is not None:
             # Show the plot in Streamlit
             st.pyplot(fig)
 
-        elif plot_type == '':
+        elif plot_type == 'Heatmap':
             fig,ax = plt.subplots()
             corr = data.corr()
             ax.imshow(corr,cmap='coolwarm')
