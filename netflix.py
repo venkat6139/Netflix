@@ -67,7 +67,7 @@ if uploaded_file is not None:
     # View the visualization
     elif option == 'View Visualization':
         # Choose the type of visualization
-        plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Scatter Plot'])
+        plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot'])
         # Display the visualization
         if plot_type == 'Histogram':
             data['Date'] = pd.to_datetime(data['Release_Date'])
@@ -95,16 +95,7 @@ if uploaded_file is not None:
 
             # Show the plot in Streamlit
             st.pyplot(fig)
-
-        elif plot_type == 'Scatter Plot':
-            #x_var = st.selectbox("x-axis variable",data.columns)
-            #y_var = st.selectbox("y-axis variable",data.columns)
-            fig,ax=plt.subplots()
-            ax.scatter(data['Show_id'],data['Release_Date'])
-            ax.set_xlabel(Show_id)
-            ax.set_ylabel(Release_Date)
-            ax.set_title(f"{Show_id} vs {Release_Date}")
-            st.pyplot(fig)
+            
     if option == 'Queries Based on Netflix Data Set':
         st.title("Queries on Data Set")
         # Question 1
@@ -113,7 +104,7 @@ if uploaded_file is not None:
             data.drop_duplicates(inplace = True) 
             st.write("New shape:", data.shape)
         # Question 2
-        if st.checkbox('Is there any Null Value present in any column ? Show with Heat-map.'):
+        if st.checkbox('Is there any Null Value present in any column ?'):
             st.write(data.isnull().sum())
             sns.heatmap(data.isnull(), cmap='viridis')
         # Question 3
@@ -168,9 +159,9 @@ if uploaded_file is not None:
             st.write(data.sort_values(by = 'Year', ascending = False))
         #Question 13
         if st.checkbox('Find all the instances where : Category is "Movie" and Type is "Dramas" or Category is "TV Show" and Type is "Kids TV"'):
-            Category_1 = st.text_input("categroy_1")
-            Category_2 = st.text_input("category_2")
-            type_1 = st.text_input("type_1")
-            type_2 = st.text_input("type_2")
+            Category_1 = st.selectbox(data['Category'].unique())
+            Category_2 = st.selectbox(data['Category'].unique())
+            type_1 = st.selectbox(data['Type'].unique())
+            type_2 = st.selectbox(data['Type'].unique())
             st.write(data[(data['Category'] == Category_1) & (data['Type'] == type_1) | (data['Category'] == Category_2) & (data['Type'] == type_2)])
 
