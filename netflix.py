@@ -97,10 +97,14 @@ if uploaded_file is not None:
             st.pyplot(fig)
 
         elif plot_type == 'Heatmap':
-            corr_matrix = data.corr()
-            st.write(corr_matrix)
-            sns.heatmap(corr_matrix,annot=True)
-            st.pyplot()
+            x_var = st.selectbox("x-axis variable",data.columns)
+            y_var = st.selectbox("y-axis variable",data.columns)
+            fig,ax=plt.subplots()
+            ax.scatter(data[x_var],data[y_var])
+            ax.set_xlabel(x_var)
+            ax.set_ylabel(y_var)
+            ax.set_title(f"{x_var} vs {y_var}")
+            st.pyplot(fig)
     if option == 'Queries Based on Netflix Data Set':
         st.title("Queries on Data Set")
         # Question 1
