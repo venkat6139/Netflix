@@ -32,7 +32,7 @@ if uploaded_file is not None:
     st.title('Exploratory Data Analysis of the Netflix Dataset')
     st.title('Choose Your Options')
     # Display options in the sidebar
-    option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Visualization','Queries Based on Netflix Data Set'])
+    option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Data Visualization','Queries Based on Netflix Data Set'])
     # View the data
     if option == 'NetFlix Data Analysis Basic Information':
         st.title("NetFlix Data Analysis Basic Information")
@@ -65,7 +65,7 @@ if uploaded_file is not None:
     elif option == 'View Summary':
         st.write(data.describe())
     # View the visualization
-    elif option == 'View Visualization':
+    elif option == 'View Data Visualization':
         # Choose the type of visualization
         plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot'])
         # Display the visualization
