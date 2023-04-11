@@ -97,17 +97,10 @@ if uploaded_file is not None:
             st.pyplot(fig)
 
         elif plot_type == 'Heatmap':
-            data["year"] = pd.DatetimeIndex(data['Release_Date']).year
-            # Create a pivot table to count the number of titles released each year
-            pivot_table = Data.pivot_table(values='show_id', index='year', aggfunc='count')
-            # Create a heatmap using seaborn
-            fig, ax = plt.subplots(figsize=(12,8))
-            sns.heatmap(pivot_table, cmap='YlGnBu', annot=True, fmt='g')
-            ax.set_title("Number of Netflix Titles Released Each Year")
-            ax.set_xlabel("Year")
-            ax.set_ylabel("")
-            # Display the heatmap in Streamlit
-            st.pyplot(fig)
+            corr_matrix = data.corr()
+            st.write(corr_matrix)
+            sns.heatmap(corr_matrix,annot=True)
+            st.pyplot()
     if option == 'Queries Based on Netflix Data Set':
         st.title("Queries on Data Set")
         # Question 1
