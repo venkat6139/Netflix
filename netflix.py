@@ -67,7 +67,7 @@ if uploaded_file is not None:
     # View the visualization
     elif option == 'View Visualization':
         # Choose the type of visualization
-        plot_type = st.sidebar.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
+        plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot', 'Heatmap'])
         # Display the visualization
         if plot_type == 'Histogram':
             # Convert the release date column to datetime format
