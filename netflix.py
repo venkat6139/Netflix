@@ -91,7 +91,7 @@ if uploaded_file is not None:
             sns.boxplot(x=data['Year'],y=data['Category'], ax=ax)
             ax.set_title('Boxplot of Netflix Release Date by Year')
             ax.set_xlabel('Year')
-            ax.set_ylabel('Release_Date')
+            ax.set_ylabel('Category')
 
             # Show the plot in Streamlit
             st.pyplot(fig)
