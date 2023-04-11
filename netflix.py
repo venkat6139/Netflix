@@ -97,13 +97,13 @@ if uploaded_file is not None:
             st.pyplot(fig)
 
         elif plot_type == 'Scatter Plot':
-            x_var = st.selectbox("x-axis variable",data.columns)
-            y_var = st.selectbox("y-axis variable",data.columns)
+            #x_var = st.selectbox("x-axis variable",data.columns)
+            #y_var = st.selectbox("y-axis variable",data.columns)
             fig,ax=plt.subplots()
-            ax.scatter(data[x_var],data[y_var])
-            ax.set_xlabel(x_var)
-            ax.set_ylabel(y_var)
-            ax.set_title(f"{x_var} vs {y_var}")
+            ax.scatter(data['Show_id'],data['Release_Date'])
+            ax.set_xlabel(Show_id)
+            ax.set_ylabel(Release_Date)
+            ax.set_title(f"{Show_id} vs {Release_Date}")
             st.pyplot(fig)
     if option == 'Queries Based on Netflix Data Set':
         st.title("Queries on Data Set")
