@@ -100,7 +100,7 @@ if uploaded_file is not None:
             x_var = st.selectbox("x-axis variable",data.columns)
             y_var = st.selectbox("y-axis variable",data.columns)
             fig,ax=plt.subplots()
-            ax.scatter(data[x_var],data[y_var])
+            ax.scatter(data['x_var'],data['y_var'])
             ax.set_xlabel(x_var)
             ax.set_ylabel(y_var)
             ax.set_title(f"{x_var} vs {y_var}")
