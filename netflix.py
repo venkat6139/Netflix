@@ -97,7 +97,7 @@ if uploaded_file is not None:
             st.pyplot(fig)
 
         elif plot_type == 'Heatmap':
-            fig,ax = plt.subplots
+            fig,ax = plt.subplots()
             corr_m = data.corr()
             sns.heatmap(corr_m, annot=True, cmap='coolwarm')
             plt.title('Correlation Heatmap')
