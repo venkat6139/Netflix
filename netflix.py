@@ -89,7 +89,7 @@ if uploaded_file is not None:
             # Create a boxplot of the release date
             fig, ax = plt.subplots()
             sns.boxplot(x=data['Year'],y=data['Category'], ax=ax)
-            ax.set_title('Boxplot of Netflix Release Date by Year')
+            ax.set_title('Boxplot of Netflix Year and Category')
             ax.set_xlabel('Year')
             ax.set_ylabel('Category')
 
