@@ -70,18 +70,18 @@ if uploaded_file is not None:
         plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot'])
         # Display the visualization
         if plot_type == 'Histogram':
-            data['Date'] = pd.to_datetime(data['Release_Date'])
+            #data['Date'] = pd.to_datetime(data['Release_Date'])
             # extract the year from the datetime object
-            data['Year'] = data['Date'].dt.year
+            #data['Year'] = data['Date'].dt.year
             # Create a histogram of the release dates
-            fig, ax = plt.subplots()
-            ax.hist(data['Year'], bins=30)
+            #fig, ax = plt.subplots()
+            #ax.hist(data['Year'], bins=30)
             # Set the chart title and labels
-            ax.set_title("Distribution of Netflix Content Release Dates")
-            ax.set_xlabel("Year")
-            ax.set_ylabel("Count")
+            #ax.set_title("Distribution of Netflix Content Release Dates")
+            #ax.set_xlabel("Year")
+            #ax.set_ylabel("Count")
             # Display the chart in the Streamlit app
-            st.pyplot(fig)
+            #st.pyplot(fig)
         elif plot_type == 'Boxplot':
             data['Date'] = pd.to_datetime(data['Release_Date'])
             # extract the year from the datetime object
