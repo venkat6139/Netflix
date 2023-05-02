@@ -81,7 +81,7 @@ if uploaded_file is not None:
             ax.set_xlabel("Year")
             ax.set_ylabel("Count")
             # Display the chart in the Streamlit app
-            st.pyplot(fig)
+            #st.pyplot(fig)
         elif plot_type == 'Boxplot':
             data['Date'] = pd.to_datetime(data['Release_Date'])
             # extract the year from the datetime object
