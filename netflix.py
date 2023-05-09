@@ -78,23 +78,10 @@ if uploaded_file is not None:
         # Question 3
         if st.checkbox('For "House of Cards", what is the Show Id and Who is the Director of this show ?'):
             st.write(data[data['Title'].isin(['House of Cards'])][['Show_Id', 'Director']])
-        # Question 4
-        if st.checkbox('In which year highest number of the TV Shows & Movies were released ? Show with Bar Graph.'):
-            data['Date_N'] = pd.to_datetime(data['Release_Date'])
-            year_wise_data = data['Date_N'].dt.year.value_counts()
-            st.bar_chart(year_wise_data)
         # Question 5
         if st.checkbox('How many Movies & TV Shows are in the dataset ? Show with Bar Graph.'):
             category_wise_data = data['Category'].value_counts()
             st.bar_chart(category_wise_data)
-        # Question 6
-        if st.checkbox('Show all the Movies that were released in year 2000.'):
-            # convert the date string to datetime object
-            # #data['Date'] = pd.to_datetime(data['Release_Date'], format='%d-%b-%y')
-            data['Date'] = pd.to_datetime(data['Release_Date'])
-            # extract the year from the datetime object
-            data['Year'] = data['Date'].dt.year
-            st.write(data[(data['Category'] == 'Movie') & (data['Year']==2000)]['Title'])
         # Question 7
         if st.checkbox('Show only the Titles of all TV Shows that were released in India only.'):
             st.write(data[ (data['Category']=='TV Show') & (data['Country']=='India') ]['Title'])
@@ -107,11 +94,6 @@ if uploaded_file is not None:
         # Question 9.1
         if st.checkbox('How many Movies got the "TV-14" rating, in Canada ?'):
             st.write(data[(data['Category']=='Movie') & (data['Rating'] == 'TV-14') & (data['Country']=='Canada')].shape[0])
-        # Question 9.2
-        if st.checkbox('How many TV Show got the "R" rating, after year 2018 ?'):
-            data['Date'] = pd.to_datetime(data['Release_Date'])
-            data['Year'] = data['Date'].dt.year
-            st.write(data[(data['Category']=='TV Show') & (data['Rating']=='R') & (data['Year'] > 2018)].shape[0])
         # Question 10
         if st.checkbox('What is the maximum duration of a Movie/Show on Netflix ?'):
             data['Minutes'] = data['Duration'].apply(lambda x: int(x.split()[0]))
@@ -120,11 +102,6 @@ if uploaded_file is not None:
         if st.checkbox('Which individual country has the Highest No. of TV Shows ?'):
             tvshow_data = data[data['Category'] == 'TV Show']
             st.write(tvshow_data['Country'].value_counts().head(1))
-        # Question 12
-        if st.checkbox('How can we sort the dataset by Year ?'):
-            st.write(data.sort_values(by = 'Year'))
-        if st.checkbox('Sort dataset by Year in descending order'):
-            st.write(data.sort_values(by = 'Year', ascending = False))
         #Question 13
         if st.checkbox('Find all the instances where : Category is "Movie" and Type is "Dramas" or Category is "TV Show" and Type is "Kids TV"'):
             Category_1 = st.text_input("categroy_1")
