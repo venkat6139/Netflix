@@ -32,7 +32,7 @@ if uploaded_file is not None:
     st.title('Exploratory Data Analysis of the Netflix Dataset')
     st.title('Choose Your Options')
     # Display options in the sidebar
-    option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary', 'View Data Visualization','Queries Based on Netflix Data Set'])
+    option = st.selectbox('Select an option', ['NetFlix Data Analysis Basic Information', 'View Summary','Queries Based on Netflix Data Set'])
     # View the data
     if option == 'NetFlix Data Analysis Basic Information':
         st.title("NetFlix Data Analysis Basic Information")
@@ -64,38 +64,6 @@ if uploaded_file is not None:
     # View the summary statistics
     elif option == 'View Summary':
         st.write(data.describe())
-    # View the visualization
-    elif option == 'View Data Visualization':
-        # Choose the type of visualization
-        plot_type = st.selectbox('Select a plot type', ['Histogram', 'Boxplot'])
-        # Display the visualization
-        if plot_type == 'Histogram':
-            data['Date'] = pd.to_datetime(data['Release_Date'])
-            # extract the year from the datetime object
-            data['Year'] = data['Date'].dt.year
-            # Create a histogram of the release dates
-            fig, ax = plt.subplots()
-            ax.hist(data['Year'], bins=30)
-            # Set the chart title and labels
-            ax.set_title("Distribution of Netflix Content Release Dates")
-            ax.set_xlabel("Year")
-            ax.set_ylabel("Count")
-            # Display the chart in the Streamlit app
-            st.pyplot(fig)
-        elif plot_type == 'Boxplot':
-            data['Date'] = pd.to_datetime(data['Release_Date'])
-            # extract the year from the datetime object
-            data['Year'] = data['Date'].dt.year
-            # Create a boxplot of the release date
-            fig, ax = plt.subplots()
-            sns.boxplot(x=data['Year'],y=data['Category'], ax=ax)
-            ax.set_title('Boxplot of Netflix Category and Year')
-            ax.set_xlabel('Year')
-            ax.set_ylabel('Category')
-
-            # Show the plot in Streamlit
-            st.pyplot(fig)
-            
     if option == 'Queries Based on Netflix Data Set':
         st.title("Queries on Data Set")
         # Question 1
