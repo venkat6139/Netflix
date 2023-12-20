@@ -11,7 +11,7 @@ logo = Image.open('logo.png')
 st.set_page_config(page_title="NetFlix  EDA", page_icon=":bar_chart:", layout="wide")
 st.image(logo)
 # Define the list of names
-names = ["21A21A6112-G.Renuka", "21A21A6139-M.Venkat", "21A21A6155-T.Navya Sri","21A21A6143-P.Annapurna","21A21A6118-J.Chaithanya Manoj","21A21A6149-P.Riteesh Varma","21A21A6121-M.Jagadeesh"]
+names = ["G.Renuka", "M.Venkat", "T.Navya Sri","P.Annapurna","J.Chaithanya Manoj","P.Riteesh Varma","M.Jagadeesh"]
 st.title("Exploratory Data Analysis on NetFlix Data Set")
 # Add the names to the sidebar
 st.sidebar.title("Project Team Members:")
